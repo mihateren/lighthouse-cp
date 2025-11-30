@@ -1,0 +1,58 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: lighthouse-db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - lighthouse-net
+
+  localstack:
+    image: localstack/localstack:latest
+    container_name: lighthouse-s3
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=s3
+      - AWS_DEFAULT_REGION=${AWS_REGION}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    volumes:
+      - localstack_data:/var/lib/localstack
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./localstack-init:/etc/localstack/init/ready.d
+    networks:
+      - lighthouse-net
+
+  liquibase-migrations:
+    container_name: migrations
+    image: liquibase/liquibase:4.29
+    depends_on:
+      - postgres
+    command:
+      - --searchPath=/changesets
+      - --changelog-file=db.changelog-master.xml
+      - --driver=org.postgresql.Driver
+      - --url=jdbc:postgresql://postgres:5432/${DB_NAME}
+      - --username=${DB_USER}
+      - --password=${DB_PASSWORD}
+      - update
+    volumes:
+      - ./changelog:/changesets
+    networks:
+      - lighthouse-net
+
+volumes:
+  postgres_data:
+  localstack_data:
+
+networks:
+  lighthouse-net:
+    driver: bridge
