@@ -7,5 +7,8 @@
 
     <include file="changes/000-create-schema.sql" relativeToChangelogFile="true"/>
     <include file="changes/001-init-schema.sql" relativeToChangelogFile="true"/>
+    <include file="changes/002-add-updated-at-and-triggers.sql" relativeToChangelogFile="true"/>
+    <include file="changes/003-create-views.sql" relativeToChangelogFile="true"/>
+    <include file="changes/004-create-functions.sql" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
