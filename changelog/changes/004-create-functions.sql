@@ -3,7 +3,7 @@
 
 -- скалярная функция: расчет рейтинга волонтера
 create or replace function lighthouse.calculate_volunteer_rating(p_volunteer_id bigint)
-returns numeric as $$
+returns numeric as '
 declare
     v_rating numeric;
     v_operations_count integer;
@@ -31,14 +31,14 @@ begin
     v_rating := (v_operations_count * 10.0) + (v_teams_led_count * 20.0) + (v_diary_entries_count * 2.0);
     
     return coalesce(v_rating, 0);
-end;
-$$ language plpgsql;
+end
+' language plpgsql;
 
 comment on function lighthouse.calculate_volunteer_rating(bigint) is 'Рассчитывает рейтинг волонтера на основе участия в операциях, руководства командами и записей в дневнике';
 
 -- скалярная функция: количество активных операций по центру
 create or replace function lighthouse.count_active_operations_by_center(p_center_id bigint)
-returns integer as $$
+returns integer as '
 declare
     v_count integer;
 begin
@@ -46,17 +46,17 @@ begin
     from lighthouse.search_operations so
     join lighthouse.admins a on so.admin_id = a.admin_id
     where a.center_id = p_center_id
-      and so.status = 'active';
+      and so.status = ''active'';
     
     return coalesce(v_count, 0);
-end;
-$$ language plpgsql;
+end
+' language plpgsql;
 
 comment on function lighthouse.count_active_operations_by_center(bigint) is 'Возвращает количество активных операций поиска для указанного центра';
 
 -- скалярная функция: средний возраст пропавших по городу
 create or replace function lighthouse.avg_victim_age_by_city(p_city varchar)
-returns numeric as $$
+returns numeric as '
 declare
     v_avg_age numeric;
 begin
@@ -66,8 +66,8 @@ begin
       and age is not null;
     
     return round(coalesce(v_avg_age, 0), 2);
-end;
-$$ language plpgsql;
+end
+' language plpgsql;
 
 comment on function lighthouse.avg_victim_age_by_city(varchar) is 'Возвращает средний возраст пропавших людей в указанном городе';
 
@@ -87,12 +87,12 @@ returns table (
     volunteers_count bigint,
     diary_entries_count bigint,
     days_active integer
-) as $$
+) as '
 begin
     return query
     select 
         so.operation_id,
-        v.first_name || ' ' || v.last_name as victim_name,
+        v.first_name || '' '' || v.last_name as victim_name,
         v.city as victim_city,
         so.status,
         so.created_at,
@@ -110,8 +110,8 @@ begin
       and (p_status is null or so.status = p_status)
     group by so.operation_id, v.first_name, v.last_name, v.city, so.status, so.created_at, so.updated_at
     order by so.created_at desc;
-end;
-$$ language plpgsql;
+end
+' language plpgsql;
 
 comment on function lighthouse.get_operations_report(timestamp, timestamp, varchar) is 'Возвращает отчет по операциям поиска за указанный период с фильтрацией по статусу';
 
@@ -128,12 +128,12 @@ returns table (
     operations_count bigint,
     teams_led_count bigint,
     diary_entries_count bigint
-) as $$
+) as '
 begin
     return query
     select 
         vol.volunteer_id,
-        vol.first_name || ' ' || vol.last_name as volunteer_name,
+        vol.first_name || '' '' || vol.last_name as volunteer_name,
         vc.title as center_name,
         lighthouse.calculate_volunteer_rating(vol.volunteer_id) as rating,
         count(distinct so.operation_id) as operations_count,
@@ -150,8 +150,7 @@ begin
     group by vol.volunteer_id, vol.first_name, vol.last_name, vc.title
     order by rating desc, operations_count desc
     limit p_limit;
-end;
-$$ language plpgsql;
+end
+' language plpgsql;
 
 comment on function lighthouse.get_top_volunteers(integer, bigint) is 'Возвращает топ волонтеров по рейтингу с возможностью фильтрации по центру';
-
