@@ -2,10 +2,12 @@ package ru.mai.lighthouse.entity.api.batch;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
 @Data
+@Accessors(chain=true)
 @Schema(description = "Ответ на пакетную операцию")
 public class BatchResponse<T> {
 

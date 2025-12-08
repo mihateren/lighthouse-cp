@@ -6,6 +6,7 @@ import lombok.Getter;
 public enum CommonMessage {
 
     RESULT_SUCCESS(0, "OK"),
+    RESULT_ERROR(1, "Error"),
     ;
 
     private int code;

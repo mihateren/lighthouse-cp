@@ -1,0 +1,5 @@
+select update_id, operation_id, volunteer_id, proposed_status, reason, admin_decision, admin_notes, created_at, decided_at, updated_at
+from lighthouse.operation_status_updates
+where operation_id = :operation_id
+order by created_at desc;
+

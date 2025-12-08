@@ -28,4 +28,11 @@ public class Result<T> {
                 .setMessage(CommonMessage.RESULT_SUCCESS.getMessage())
                 .setPayload(payload);
     }
+
+    public static <T> Result<T> error(String message) {
+        return new Result<T>()
+                .setResultCode(CommonMessage.RESULT_ERROR.getCode())
+                .setMessage(message)
+                .setPayload(null);
+    }
 }
