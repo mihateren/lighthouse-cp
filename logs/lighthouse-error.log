@@ -1,0 +1,66 @@
+2025-12-07 13:55:47.227 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    io.awspring.cloud.autoconfigure.s3.properties.S3Properties.toS3Configuration(S3Properties.java:171)
+
+The following method did not exist:
+
+    'org.springframework.boot.context.properties.PropertyMapper$Source org.springframework.boot.context.properties.PropertyMapper$Source.whenNonNull()'
+
+The calling method's class, io.awspring.cloud.autoconfigure.s3.properties.S3Properties, was loaded from the following location:
+
+    jar:file:/C:/Users/User/.m2/repository/io/awspring/cloud/spring-cloud-aws-autoconfigure/3.1.0/spring-cloud-aws-autoconfigure-3.1.0.jar!/io/awspring/cloud/autoconfigure/s3/properties/S3Properties.class
+
+The called method's class, org.springframework.boot.context.properties.PropertyMapper$Source, is available from the following locations:
+
+    jar:file:/C:/Users/User/.m2/repository/org/springframework/boot/spring-boot/4.0.0/spring-boot-4.0.0.jar!/org/springframework/boot/context/properties/PropertyMapper$Source.class
+
+The called method's class hierarchy was loaded from the following locations:
+
+    org.springframework.boot.context.properties.PropertyMapper.Source: file:/C:/Users/User/.m2/repository/org/springframework/boot/spring-boot/4.0.0/spring-boot-4.0.0.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains compatible versions of the classes io.awspring.cloud.autoconfigure.s3.properties.S3Properties and org.springframework.boot.context.properties.PropertyMapper$Source
+
+2025-12-07 13:57:30.759 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    io.awspring.cloud.autoconfigure.s3.properties.S3Properties.toS3Configuration(S3Properties.java:171)
+
+The following method did not exist:
+
+    'org.springframework.boot.context.properties.PropertyMapper$Source org.springframework.boot.context.properties.PropertyMapper$Source.whenNonNull()'
+
+The calling method's class, io.awspring.cloud.autoconfigure.s3.properties.S3Properties, was loaded from the following location:
+
+    jar:file:/C:/Users/User/.m2/repository/io/awspring/cloud/spring-cloud-aws-autoconfigure/3.1.0/spring-cloud-aws-autoconfigure-3.1.0.jar!/io/awspring/cloud/autoconfigure/s3/properties/S3Properties.class
+
+The called method's class, org.springframework.boot.context.properties.PropertyMapper$Source, is available from the following locations:
+
+    jar:file:/C:/Users/User/.m2/repository/org/springframework/boot/spring-boot/4.0.0/spring-boot-4.0.0.jar!/org/springframework/boot/context/properties/PropertyMapper$Source.class
+
+The called method's class hierarchy was loaded from the following locations:
+
+    org.springframework.boot.context.properties.PropertyMapper.Source: file:/C:/Users/User/.m2/repository/org/springframework/boot/spring-boot/4.0.0/spring-boot-4.0.0.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains compatible versions of the classes io.awspring.cloud.autoconfigure.s3.properties.S3Properties and org.springframework.boot.context.properties.PropertyMapper$Source
+

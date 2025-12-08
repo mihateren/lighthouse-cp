@@ -1,0 +1,88 @@
+2025-12-07 13:55:45.971 [main] INFO  r.m.lighthouse.LighthouseApplication - Starting LighthouseApplication using Java 21.0.7 with PID 18688 (C:\Users\User\IdeaProjects\lighthouse\target\classes started by User in C:\Users\User\IdeaProjects\lighthouse)
+2025-12-07 13:55:45.974 [main] INFO  r.m.lighthouse.LighthouseApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-07 13:55:46.932 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-07 13:55:46.949 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-07 13:55:46.950 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-07 13:55:47.006 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 994 ms
+2025-12-07 13:55:47.198 [main] WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'welcomePageHandlerMapping' defined in class path resource [org/springframework/boot/webmvc/autoconfigure/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Failed to instantiate [org.springframework.boot.webmvc.autoconfigure.WelcomePageHandlerMapping]: Factory method 'welcomePageHandlerMapping' threw exception with message: Error creating bean with name 's3Client' defined in class path resource [io/awspring/cloud/autoconfigure/s3/S3AutoConfiguration$CrossRegionS3ClientConfiguration.class]: Unsatisfied dependency expressed through method 's3Client' parameter 0: Error creating bean with name 's3ClientBuilder' defined in class path resource [io/awspring/cloud/autoconfigure/s3/S3AutoConfiguration.class]: Failed to instantiate [software.amazon.awssdk.services.s3.S3ClientBuilder]: Factory method 's3ClientBuilder' threw exception with message: 'org.springframework.boot.context.properties.PropertyMapper$Source org.springframework.boot.context.properties.PropertyMapper$Source.whenNonNull()'
+2025-12-07 13:55:47.200 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-07 13:55:47.214 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-07 13:55:47.227 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    io.awspring.cloud.autoconfigure.s3.properties.S3Properties.toS3Configuration(S3Properties.java:171)
+
+The following method did not exist:
+
+    'org.springframework.boot.context.properties.PropertyMapper$Source org.springframework.boot.context.properties.PropertyMapper$Source.whenNonNull()'
+
+The calling method's class, io.awspring.cloud.autoconfigure.s3.properties.S3Properties, was loaded from the following location:
+
+    jar:file:/C:/Users/User/.m2/repository/io/awspring/cloud/spring-cloud-aws-autoconfigure/3.1.0/spring-cloud-aws-autoconfigure-3.1.0.jar!/io/awspring/cloud/autoconfigure/s3/properties/S3Properties.class
+
+The called method's class, org.springframework.boot.context.properties.PropertyMapper$Source, is available from the following locations:
+
+    jar:file:/C:/Users/User/.m2/repository/org/springframework/boot/spring-boot/4.0.0/spring-boot-4.0.0.jar!/org/springframework/boot/context/properties/PropertyMapper$Source.class
+
+The called method's class hierarchy was loaded from the following locations:
+
+    org.springframework.boot.context.properties.PropertyMapper.Source: file:/C:/Users/User/.m2/repository/org/springframework/boot/spring-boot/4.0.0/spring-boot-4.0.0.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains compatible versions of the classes io.awspring.cloud.autoconfigure.s3.properties.S3Properties and org.springframework.boot.context.properties.PropertyMapper$Source
+
+2025-12-07 13:57:29.296 [main] INFO  r.m.lighthouse.LighthouseApplication - Starting LighthouseApplication using Java 21.0.7 with PID 16220 (C:\Users\User\IdeaProjects\lighthouse\target\classes started by User in C:\Users\User\IdeaProjects\lighthouse)
+2025-12-07 13:57:29.299 [main] INFO  r.m.lighthouse.LighthouseApplication - No active profile set, falling back to 1 default profile: "default"
+2025-12-07 13:57:30.446 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-12-07 13:57:30.458 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-12-07 13:57:30.459 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-12-07 13:57:30.527 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1191 ms
+2025-12-07 13:57:30.732 [main] WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'welcomePageHandlerMapping' defined in class path resource [org/springframework/boot/webmvc/autoconfigure/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Failed to instantiate [org.springframework.boot.webmvc.autoconfigure.WelcomePageHandlerMapping]: Factory method 'welcomePageHandlerMapping' threw exception with message: Error creating bean with name 's3Client' defined in class path resource [io/awspring/cloud/autoconfigure/s3/S3AutoConfiguration$CrossRegionS3ClientConfiguration.class]: Unsatisfied dependency expressed through method 's3Client' parameter 0: Error creating bean with name 's3ClientBuilder' defined in class path resource [io/awspring/cloud/autoconfigure/s3/S3AutoConfiguration.class]: Failed to instantiate [software.amazon.awssdk.services.s3.S3ClientBuilder]: Factory method 's3ClientBuilder' threw exception with message: 'org.springframework.boot.context.properties.PropertyMapper$Source org.springframework.boot.context.properties.PropertyMapper$Source.whenNonNull()'
+2025-12-07 13:57:30.735 [main] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2025-12-07 13:57:30.746 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-07 13:57:30.759 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+An attempt was made to call a method that does not exist. The attempt was made from the following location:
+
+    io.awspring.cloud.autoconfigure.s3.properties.S3Properties.toS3Configuration(S3Properties.java:171)
+
+The following method did not exist:
+
+    'org.springframework.boot.context.properties.PropertyMapper$Source org.springframework.boot.context.properties.PropertyMapper$Source.whenNonNull()'
+
+The calling method's class, io.awspring.cloud.autoconfigure.s3.properties.S3Properties, was loaded from the following location:
+
+    jar:file:/C:/Users/User/.m2/repository/io/awspring/cloud/spring-cloud-aws-autoconfigure/3.1.0/spring-cloud-aws-autoconfigure-3.1.0.jar!/io/awspring/cloud/autoconfigure/s3/properties/S3Properties.class
+
+The called method's class, org.springframework.boot.context.properties.PropertyMapper$Source, is available from the following locations:
+
+    jar:file:/C:/Users/User/.m2/repository/org/springframework/boot/spring-boot/4.0.0/spring-boot-4.0.0.jar!/org/springframework/boot/context/properties/PropertyMapper$Source.class
+
+The called method's class hierarchy was loaded from the following locations:
+
+    org.springframework.boot.context.properties.PropertyMapper.Source: file:/C:/Users/User/.m2/repository/org/springframework/boot/spring-boot/4.0.0/spring-boot-4.0.0.jar
+
+
+Action:
+
+Correct the classpath of your application so that it contains compatible versions of the classes io.awspring.cloud.autoconfigure.s3.properties.S3Properties and org.springframework.boot.context.properties.PropertyMapper$Source
+
