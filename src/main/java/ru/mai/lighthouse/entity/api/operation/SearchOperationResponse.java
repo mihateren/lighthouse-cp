@@ -2,10 +2,12 @@ package ru.mai.lighthouse.entity.api.operation;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.time.LocalDateTime;
 
 @Data
+@Accessors(chain = true)
 @Schema(description = "Информация об операции поиска")
 public class SearchOperationResponse {
 

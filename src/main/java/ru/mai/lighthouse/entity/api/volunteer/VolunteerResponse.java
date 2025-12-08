@@ -2,11 +2,13 @@ package ru.mai.lighthouse.entity.api.volunteer;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
+@Accessors(chain = true)
 @Schema(description = "Информация о волонтере")
 public class VolunteerResponse {
 

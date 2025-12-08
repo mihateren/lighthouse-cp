@@ -6,8 +6,10 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 @Data
+@Accessors(chain = true)
 @Schema(description = "Запрос на создание/обновление данных о пропавшем человеке")
 public class VictimRequest {
 

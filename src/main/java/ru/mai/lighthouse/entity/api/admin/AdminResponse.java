@@ -2,10 +2,12 @@ package ru.mai.lighthouse.entity.api.admin;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.time.LocalDate;
 
 @Data
+@Accessors(chain = true)
 @Schema(description = "Информация об админе")
 public class AdminResponse {
 

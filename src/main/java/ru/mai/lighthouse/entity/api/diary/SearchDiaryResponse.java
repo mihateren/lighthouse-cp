@@ -2,10 +2,12 @@ package ru.mai.lighthouse.entity.api.diary;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.time.LocalDateTime;
 
 @Data
+@Accessors(chain = true)
 @Schema(description = "Запись в дневнике поиска")
 public class SearchDiaryResponse {
 

@@ -64,3 +64,22 @@ Action:
 
 Correct the classpath of your application so that it contains compatible versions of the classes io.awspring.cloud.autoconfigure.s3.properties.S3Properties and org.springframework.boot.context.properties.PropertyMapper$Source
 
+2025-12-08 20:30:33.315 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to bind properties under 'spring.cloud.aws.s3.endpoint' to java.net.URI:
+
+    Property: spring.cloud.aws.s3.endpoint
+    Value: "${AWS_ENDPOINT}"
+    Origin: class path resource [application.yml] - 13:19
+    Reason: failed to convert java.lang.String to @org.springframework.lang.Nullable java.net.URI (caused by java.lang.IllegalArgumentException: Invalid URI syntax: Illegal character in path at index 1: ${AWS_ENDPOINT})
+
+Action:
+
+Update your application's configuration
+
