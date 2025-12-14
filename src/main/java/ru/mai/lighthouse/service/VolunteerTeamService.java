@@ -13,8 +13,6 @@ import ru.mai.lighthouse.repository.volunteer_team.VolunteerTeamRepository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Slf4j
 @Service
@@ -31,7 +29,7 @@ public class VolunteerTeamService {
     public VolunteerTeamResponse getById(Long id) {
         log.info("Получение команды по ID: {}", id);
         return volunteerTeamRepository.getById(id)
-                .orElseThrow(() -> new ru.mai.lighthouse.exception.NotFoundException(
+                .orElseThrow(() -> new NotFoundException(
                         String.format("Команда с ID %d не найдена", id)));
     }
 
@@ -86,15 +84,12 @@ public class VolunteerTeamService {
 
     public BatchResponse<VolunteerTeamResponse> batchUpdate(BatchRequest<VolunteerTeamRequest> request) {
         log.info("Пакетное обновление команд: {} элементов", request.getItems().size());
-
-        List<BatchError> errors = IntStream.range(0, request.getItems().size())
-                .mapToObj(index -> new BatchError(index, "Для обновления требуется ID команды"))
-                .collect(Collectors.toList());
-
         return new BatchResponse<VolunteerTeamResponse>()
                 .setSuccessCount(0)
                 .setErrorCount(request.getItems().size())
                 .setSuccessItems(List.of())
-                .setErrors(errors);
+                .setErrors(request.getItems().stream()
+                        .map((item, index) -> new BatchError(index, "Для обновления требуется ID команды"))
+                        .toList());
     }
 }
