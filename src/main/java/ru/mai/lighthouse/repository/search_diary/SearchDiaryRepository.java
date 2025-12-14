@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.mai.lighthouse.entity.api.diary.SearchDiaryRequest;
 import ru.mai.lighthouse.entity.api.diary.SearchDiaryResponse;
 import ru.mai.lighthouse.entity.domain.SearchDiary;
+import ru.mai.lighthouse.mapper.AdminMapper;
 import ru.mai.lighthouse.mapper.SearchDiaryMapper;
 
 import java.sql.ResultSet;
@@ -29,7 +30,7 @@ public class SearchDiaryRepository {
     private static final String PARAM_LOCATION = "location";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-    private final SearchDiaryMapper searchDiaryMapper = SearchDiaryMapper.INSTANCE;
+    private final SearchDiaryMapper searchDiaryMapper;
 
     private SearchDiary mapFromResultSet(ResultSet rs) throws SQLException {
         return new SearchDiary()

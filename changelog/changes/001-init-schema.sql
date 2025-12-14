@@ -158,5 +158,4 @@ ALTER TABLE lighthouse.operation_status_updates ADD FOREIGN KEY (operation_id) R
 ALTER TABLE lighthouse.operation_status_updates ADD FOREIGN KEY (volunteer_id) REFERENCES lighthouse.volunteers (volunteer_id);
 
 -- Комментарии
-COMMENT ON COLUMN lighthouse.victims.photo IS 'S3 link';
 COMMENT ON COLUMN lighthouse.volunteers.skills IS 'Компетенции и навыки волонтера';

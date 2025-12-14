@@ -7,9 +7,8 @@ import ru.mai.lighthouse.entity.api.status.OperationStatusUpdateRequest;
 import ru.mai.lighthouse.entity.api.status.OperationStatusUpdateResponse;
 import ru.mai.lighthouse.entity.domain.OperationStatusUpdate;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface OperationStatusUpdateMapper {
-    OperationStatusUpdateMapper INSTANCE = Mappers.getMapper(OperationStatusUpdateMapper.class);
 
     OperationStatusUpdateResponse toResponse(OperationStatusUpdate update);
 

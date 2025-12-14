@@ -31,7 +31,7 @@ public class OperationStatusUpdateRepository {
     private static final String PARAM_STATUS = "status";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-    private final OperationStatusUpdateMapper operationStatusUpdateMapper = OperationStatusUpdateMapper.INSTANCE;
+    private final OperationStatusUpdateMapper operationStatusUpdateMapper;
 
     private OperationStatusUpdate mapFromResultSet(ResultSet rs) throws SQLException {
         return new OperationStatusUpdate()

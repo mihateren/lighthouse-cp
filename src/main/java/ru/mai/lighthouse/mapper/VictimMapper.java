@@ -8,9 +8,8 @@ import ru.mai.lighthouse.entity.api.victim.VictimRequest;
 import ru.mai.lighthouse.entity.api.victim.VictimResponse;
 import ru.mai.lighthouse.entity.domain.Victim;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface VictimMapper {
-    VictimMapper INSTANCE = Mappers.getMapper(VictimMapper.class);
 
     VictimRequest toRequest(VictimCreateRequest createRequest);
 
@@ -24,7 +23,6 @@ public interface VictimMapper {
                 .addValue("city", request.getCity())
                 .addValue("age", request.getAge())
                 .addValue("height", request.getHeight())
-                .addValue("photo", request.getPhoto())
                 .addValue("notes", request.getNotes());
     }
 }

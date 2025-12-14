@@ -7,9 +7,8 @@ import ru.mai.lighthouse.entity.api.team.VolunteerTeamRequest;
 import ru.mai.lighthouse.entity.api.team.VolunteerTeamResponse;
 import ru.mai.lighthouse.entity.domain.VolunteerTeam;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface VolunteerTeamMapper {
-    VolunteerTeamMapper INSTANCE = Mappers.getMapper(VolunteerTeamMapper.class);
 
     VolunteerTeamResponse toResponse(VolunteerTeam team);
 

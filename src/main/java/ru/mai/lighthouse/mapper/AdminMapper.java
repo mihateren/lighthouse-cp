@@ -7,9 +7,8 @@ import ru.mai.lighthouse.entity.api.admin.AdminRequest;
 import ru.mai.lighthouse.entity.api.admin.AdminResponse;
 import ru.mai.lighthouse.entity.domain.Admin;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface AdminMapper {
-    AdminMapper INSTANCE = Mappers.getMapper(AdminMapper.class);
 
     AdminResponse toResponse(Admin admin);
 

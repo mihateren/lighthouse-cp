@@ -38,9 +38,6 @@ public class VictimRequest {
     @Schema(description = "Рост в см", example = "175")
     private Integer height;
 
-    @Schema(description = "Ссылка на фото (S3)", example = "https://s3.example.com/photo.jpg")
-    private String photo;
-
     @Schema(description = "Дополнительные заметки", example = "Последний раз видели в парке")
     private String notes;
 }

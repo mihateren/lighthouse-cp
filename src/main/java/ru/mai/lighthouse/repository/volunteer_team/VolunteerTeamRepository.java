@@ -29,7 +29,7 @@ public class VolunteerTeamRepository {
     private static final String PARAM_VOLUNTEER_ID = "volunteer_id";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-    private final VolunteerTeamMapper volunteerTeamMapper = VolunteerTeamMapper.INSTANCE;
+    private final VolunteerTeamMapper volunteerTeamMapper;
 
     private VolunteerTeam mapFromResultSet(ResultSet rs) throws SQLException {
         return new VolunteerTeam()

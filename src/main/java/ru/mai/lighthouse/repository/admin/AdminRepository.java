@@ -29,7 +29,7 @@ public class AdminRepository {
     private static final String PARAM_BIRTHDATE = "birthdate";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-    private final AdminMapper adminMapper = AdminMapper.INSTANCE;
+    private final AdminMapper adminMapper;
 
     private Admin mapFromResultSet(ResultSet rs) throws SQLException {
         return new Admin()

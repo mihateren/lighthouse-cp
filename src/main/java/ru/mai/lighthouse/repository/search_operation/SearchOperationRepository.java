@@ -27,7 +27,7 @@ public class SearchOperationRepository {
     private static final String PARAM_STATUS = "status";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-    private final SearchOperationMapper searchOperationMapper = SearchOperationMapper.INSTANCE;
+    private final SearchOperationMapper searchOperationMapper;
 
     private SearchOperation mapFromResultSet(ResultSet rs) throws SQLException {
         return new SearchOperation()

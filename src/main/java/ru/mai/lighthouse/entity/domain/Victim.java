@@ -14,7 +14,6 @@ public class Victim {
     private String city;
     private Integer age;
     private Integer height;
-    private String photo;
     private String notes;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

@@ -8,9 +8,8 @@ import ru.mai.lighthouse.entity.api.center.CreateCenterRequest;
 import ru.mai.lighthouse.entity.api.center.UpdateCenterRequest;
 import ru.mai.lighthouse.entity.domain.VolunteerCenter;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface VolunteerCenterMapper {
-    VolunteerCenterMapper INSTANCE = Mappers.getMapper(VolunteerCenterMapper.class);
 
     CenterResponse toResponse(VolunteerCenter center);
 

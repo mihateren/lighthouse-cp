@@ -5,7 +5,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import ru.mai.lighthouse.entity.api.Result;
 import ru.mai.lighthouse.entity.api.batch.BatchRequest;
 import ru.mai.lighthouse.entity.api.batch.BatchResponse;
@@ -14,7 +13,6 @@ import ru.mai.lighthouse.entity.api.victim.VictimRequest;
 import ru.mai.lighthouse.entity.api.victim.VictimResponse;
 import ru.mai.lighthouse.service.VictimService;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -38,14 +36,15 @@ public class VictimController {
     public static final String BATCH_UPDATE = BASE_PREFIX + "/batch/update";
     public static final String GET_BATCH_EXAMPLES = BASE_PREFIX + "/batch/examples";
 
-    @PostMapping(value = CREATE_VICTIM, consumes = {"multipart/form-data"})
-    @Operation(summary = "Создание записи о пропавшем с фотографиями", 
-               description = "Создает новую запись о пропавшем человеке. Фотографии будут загружены в S3.")
-    public Result<VictimResponse> createVictim(
-            @RequestPart("data") @Valid VictimCreateRequest request,
-            @RequestPart(value = "photos", required = false) List<MultipartFile> photos) throws IOException {
-        return Result.success(victimService.create(request, photos));
+    @PostMapping(CREATE_VICTIM)
+    @Operation(
+            summary = "Создание записи о пропавшем",
+            description = "Создает новую запись о пропавшем человеке"
+    )
+    public Result<VictimResponse> createVictim(@Valid @RequestBody VictimCreateRequest request) {
+        return Result.success(victimService.create(request));
     }
+
 
     @GetMapping(GET_VICTIM)
     @Operation(summary = "Получение записи о пропавшем по ID", description = "Возвращает информацию о пропавшем человеке")
@@ -94,8 +93,7 @@ public class VictimController {
                                 .setCity(item.getCity())
                                 .setAge(item.getAge())
                                 .setHeight(item.getHeight())
-                                .setNotes(item.getNotes()),
-                        null
+                                .setNotes(item.getNotes())
                 );
                 successItems.add(response);
             } catch (Exception e) {

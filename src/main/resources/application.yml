@@ -5,17 +5,6 @@ spring:
     url: ${DB_URL}
     username: ${DB_USER}
     password: ${DB_PASSWORD}
-  cloud:
-    aws:
-      s3:
-        enabled: true
-        path-style-access-enabled: true
-        endpoint: ${AWS_ENDPOINT}
-      region:
-        static: ${AWS_REGION}
-      credentials:
-        access-key: ${AWS_ACCESS_KEY_ID}
-        secret-key: ${AWS_SECRET_ACCESS_KEY}
 
 logging:
   config: classpath:logback.xml

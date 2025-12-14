@@ -9,9 +9,8 @@ import ru.mai.lighthouse.entity.domain.Volunteer;
 
 import java.util.Objects;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface VolunteerMapper {
-    VolunteerMapper INSTANCE = Mappers.getMapper(VolunteerMapper.class);
 
     VolunteerResponse toResponse(Volunteer volunteer);
 

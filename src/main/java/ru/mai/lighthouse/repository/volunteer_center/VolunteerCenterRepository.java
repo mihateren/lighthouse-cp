@@ -28,7 +28,7 @@ public class VolunteerCenterRepository {
     private static final String PARAM_ADDRESS = "address";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-    private final VolunteerCenterMapper volunteerCenterMapper = VolunteerCenterMapper.INSTANCE;
+    private final VolunteerCenterMapper volunteerCenterMapper;
 
     private VolunteerCenter mapFromResultSet(ResultSet rs) throws SQLException {
         return new VolunteerCenter()

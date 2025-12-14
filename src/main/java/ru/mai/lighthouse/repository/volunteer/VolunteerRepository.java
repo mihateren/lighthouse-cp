@@ -32,7 +32,7 @@ public class VolunteerRepository {
     private static final String PARAM_IS_ACTIVE = "is_active";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-    private final VolunteerMapper volunteerMapper = VolunteerMapper.INSTANCE;
+    private final VolunteerMapper volunteerMapper;
 
     private Volunteer mapFromResultSet(ResultSet rs) throws SQLException {
         return new Volunteer()

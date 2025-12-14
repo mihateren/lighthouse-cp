@@ -9,9 +9,8 @@ import ru.mai.lighthouse.entity.domain.SearchOperation;
 
 import java.util.Objects;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface SearchOperationMapper {
-    SearchOperationMapper INSTANCE = Mappers.getMapper(SearchOperationMapper.class);
 
     SearchOperationResponse toResponse(SearchOperation operation);
 

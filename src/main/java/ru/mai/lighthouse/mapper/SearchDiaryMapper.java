@@ -7,9 +7,8 @@ import ru.mai.lighthouse.entity.api.diary.SearchDiaryRequest;
 import ru.mai.lighthouse.entity.api.diary.SearchDiaryResponse;
 import ru.mai.lighthouse.entity.domain.SearchDiary;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface SearchDiaryMapper {
-    SearchDiaryMapper INSTANCE = Mappers.getMapper(SearchDiaryMapper.class);
 
     SearchDiaryResponse toResponse(SearchDiary diary);
 

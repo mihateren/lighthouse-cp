@@ -28,11 +28,10 @@ public class VictimRepository {
     private static final String PARAM_CITY = "city";
     private static final String PARAM_AGE = "age";
     private static final String PARAM_HEIGHT = "height";
-    private static final String PARAM_PHOTO = "photo";
     private static final String PARAM_NOTES = "notes";
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-    private final VictimMapper victimMapper = VictimMapper.INSTANCE;
+    private final VictimMapper victimMapper;
 
     private Victim mapFromResultSet(ResultSet rs) throws SQLException {
         Victim victim = new Victim()
@@ -42,7 +41,6 @@ public class VictimRepository {
                 .setCity(rs.getString("city"))
                 .setAge(rs.getObject("age", Integer.class))
                 .setHeight(rs.getObject("height", Integer.class))
-                .setPhoto(rs.getString("photo"))
                 .setNotes(rs.getString("notes"))
                 .setUpdatedAt(Objects.nonNull(rs.getTimestamp("updated_at"))
                     ? rs.getTimestamp("updated_at").toLocalDateTime()
