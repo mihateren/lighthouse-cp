@@ -9,6 +9,7 @@ import ru.mai.lighthouse.entity.api.batch.BatchResponse;
 import ru.mai.lighthouse.entity.api.team.TeamMemberRequest;
 import ru.mai.lighthouse.entity.api.team.VolunteerTeamRequest;
 import ru.mai.lighthouse.entity.api.team.VolunteerTeamResponse;
+import ru.mai.lighthouse.exception.NotFoundException;
 import ru.mai.lighthouse.repository.volunteer_team.VolunteerTeamRepository;
 
 import java.util.List;
@@ -88,8 +89,6 @@ public class VolunteerTeamService {
                 .setSuccessCount(0)
                 .setErrorCount(request.getItems().size())
                 .setSuccessItems(List.of())
-                .setErrors(request.getItems().stream()
-                        .map((item, index) -> new BatchError(index, "Для обновления требуется ID команды"))
-                        .toList());
+                .setErrors(List.of(new BatchError(0, "Для обновления требуется ID команды")));
     }
 }
